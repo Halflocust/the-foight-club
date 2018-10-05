@@ -13,7 +13,7 @@ class Player:
         self.max_health = 100
         self.health = self.max_health
         self.base_attack = 8
-        self.gold = 65
+        self.gold = 10
         self.pots = 0
         self.weapon = ["Plank"]
         self.current_weapon = ["Plank"]
@@ -49,6 +49,7 @@ def start():
     option = input(">>>  ")
     global PlayerIG
     PlayerIG = Player(option)
+    Player.total_wins = 0
     start1()
 
 def start1():
@@ -67,8 +68,9 @@ def start1():
     print ("2) Shop")
     print ("3) Save")
     print ("4) Inventory")
-    print ("5) Exit")
-    print("6) Top scores")
+    print ("5) Top scores")
+    print ("6) Exit")
+    
     option = input(">>>  ")
     if option == "1":
         pre_fight()
@@ -78,22 +80,27 @@ def start1():
         save()
     elif option == "4":
         inventory() 
-    elif option == "5":
-        main()
     elif option == "6":
+        main()
+    elif option == "5":
         top_score()
     else:
         start1()
 
 def pre_fight():
     global enemy
-    enemy_select = random.randint(0,2)
+    enemy_select = random.randint(0,4)
     if enemy_select ==  0:
         enemy = enemies.Zombie()
     elif enemy_select ==  1:
         enemy = enemies.Goblin()
-    if enemy_select ==  2:
+    elif enemy_select ==  2:
+        enemy = enemies.Greg()
+    elif enemy_select ==  3:
+        enemy = enemies.MrPeanutbutter()
+    if enemy_select ==  4:
         enemy = enemies.WereWolf()
+
     fight()        
 
 def fight():
@@ -148,12 +155,18 @@ def drink_pot():
         print("You don't have any potions")
         option = input(">>>  ")
         fight()
+    elif PlayerIG.health >= 100:
+        print("You are already at full health")
+        option = input(">>>  ")
+        fight()
+
     else:
         PlayerIG.health += 30
         if PlayerIG.health > PlayerIG.max_health:
             PlayerIG.health = PlayerIG.max_health
-            PlayerIG.pots -= 1
-        print("You drank a potion")
+        PlayerIG.pots -= 1
+        print("You drank a potion. Your health is now: {}".format(PlayerIG.health))
+        option = input(">>> ")
         fight()
 
 

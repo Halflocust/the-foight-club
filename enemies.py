@@ -11,9 +11,9 @@ class WereWolf(Enemy):
     def __init__ (self):
         super(). __init__(
             name = "Werewolf",
-            attack = 20,
-            max_health = 35,
-            health = 35,
+            attack = 16,
+            max_health = 30,
+            health = 30,
             gold_gain = 20
         )
 
@@ -21,7 +21,7 @@ class Goblin(Enemy):
     def __init__ (self):
         super(). __init__(
             name = "Goblin",
-            attack = 20,
+            attack = 16,
             max_health = 20,
             health = 20,
             gold_gain = 10
@@ -36,6 +36,28 @@ class Zombie(Enemy):
             health = 40,
             gold_gain = 10
         )
+
+
+class MrPeanutbutter(Enemy):
+    def __init__ (self):
+        super(). __init__(
+            name = "Mr Peanutbutter",
+            attack = 8,
+            max_health = 25,
+            health = 25,
+            gold_gain = 5
+        )
+
+class Greg(Enemy):
+    def __init__ (self):
+        super(). __init__(
+            name = "Greg",
+            attack = 28,
+            max_health = 20,
+            health = 20,
+            gold_gain = 10
+        )
+
 
 
 

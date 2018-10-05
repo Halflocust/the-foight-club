@@ -28,7 +28,7 @@ class Dagger(Weapon):
             name = "Dagger",
             description = "A fine choice for covert operations. Ensures a stealthy entry",
             damage = 16,
-            value = 20,
+            value = 30,
             dur = 85)
 
 class SpikedClub(Weapon):
@@ -36,8 +36,8 @@ class SpikedClub(Weapon):
         super().__init__(
             name = "Spiked club",
             description = "Deadly, topheavy and wooden. Takes a share of enemy flesh after connecting a blow",
-            damage = 34,
-            value = 20,
+            damage = 25,
+            value = 50,
             dur = 30)
 
 class Plank(Weapon):
